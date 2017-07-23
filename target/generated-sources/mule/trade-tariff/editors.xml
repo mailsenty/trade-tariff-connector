@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/trade-tariff" prefix="trade-tariff">
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="TradeTariff" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/trade-tariff/abstractTrade-tariffConnectorGeneric"></global-cloud-connector>
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="TradeTariff: Configuration" description="Global Configuration configuration information." icon="icons/theme.classic/trade-tariff-connector-small.png" localId="config" image="icons/theme.classic/trade-tariff-connector-large.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/trade-tariff/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
+    <attribute-category caption="General" description="Trade-tariff configuration properties.">
+      <group id="trade-tariffGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+      <group id="general" caption="General">
+        <string defaultValue="Hello" name="greeting" caption="Greeting" description="Greeting message." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <string defaultValue="How are you?" name="reply" caption="Reply" description="Reply message." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector caption="Abstracttrade-tariffconnectorgeneric" description="Interact with Trade-tariff." icon="icons/theme.classic/trade-tariff-connector-small.png" localId="abstractTrade-tariffConnectorGeneric" image="icons/theme.classic/trade-tariff-connector-large.png" abstract="true">
+    <attribute-category caption="General" description="General.">
+      <group id="abstractTrade-tariffConnectorGeneric" caption="Basic Settings">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/trade-tariff/config" name="config-ref" caption="Connector Configuration" description="Specify which configuration to use for this invocation." required="true"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.trade-tariff" caption="TradeTariff" description="" icon="icons/theme.classic/trade-tariff-connector-small.png" localId="trade-tariff-connector" image="icons/theme.classic/trade-tariff-connector-large.png" extends="http://www.mulesoft.org/schema/mule/trade-tariff/abstractTrade-tariffConnectorGeneric">
+    <attribute-category caption="General" description="General.">
+      <group id="trade-tariffConnectorGeneric" caption="Basic Settings">
+        <modeSwitch alwaysCombo="true" name="Trade-tariff operations to execute" caption="Operation" description="Operation.">
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/trade-tariff/abstractTrade-tariffConnectorGeneric" versions="[3.5.0,8.0.0]" connector-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/trade-tariff/finalyears" modeLabel="Finalyears"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/trade-tariff/greet" modeLabel="Greet"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/trade-tariff/query" modeLabel="Query"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/trade-tariff/reporter-names" modeLabel="Reporter names"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/trade-tariff/sources" modeLabel="Sources"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Finalyears" icon="icons/theme.classic/trade-tariff-connector-small.png" localId="finalyears" image="icons/theme.classic/trade-tariff-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/trade-tariff/abstractTrade-tariffConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="finalyears" caption="Finalyears" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Greet" icon="icons/theme.classic/trade-tariff-connector-small.png" localId="greet" image="icons/theme.classic/trade-tariff-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/trade-tariff/abstractTrade-tariffConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="friend" caption="Friend" description="Name to be used to generate a greeting message." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Query" icon="icons/theme.classic/trade-tariff-connector-small.png" localId="query" image="icons/theme.classic/trade-tariff-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/trade-tariff/abstractTrade-tariffConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="query" caption="Query" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Reporter Names" icon="icons/theme.classic/trade-tariff-connector-small.png" localId="reporter-names" image="icons/theme.classic/trade-tariff-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/trade-tariff/abstractTrade-tariffConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="reporterNames" caption="Reporter Names" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Sources" icon="icons/theme.classic/trade-tariff-connector-small.png" localId="sources" image="icons/theme.classic/trade-tariff-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/trade-tariff/abstractTrade-tariffConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="sources" caption="Sources" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>
